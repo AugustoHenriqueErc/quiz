@@ -1,16 +1,17 @@
+import java.util.HashMap;
 public class Question
 {
     int value;
     String question;
-    String[] answer;
+    HashMap<String, String> answers;
     int questionNumber;
-    int corretcAnswer;
+    String corretcAnswer;
 
-    Question(int value,String question, String[] answer)
+    Question(int value,String question, HashMap<String, String> answer)
     {
         this.question = question;
         this.value = value;
-        this.answer = answer;
+        this.answers = answer;
         this.questionNumber = questionNumber;
     }
 
@@ -22,20 +23,20 @@ public class Question
     {
         StringBuilder strb = new StringBuilder();
         strb.append("\nAnswers:");
-        for(int i = 0;i < answer.length;i++)
+        for(String answer : answers.values())
         {
-               strb.append("\n"+i+")"+answer[i]);
+            strb.append(answer);
         }
         return strb.toString();
     }
 
-    public boolean isAnswer(int answer)
+    public boolean isAnswer(String answer)
     {
         if(answer == corretcAnswer) return true;
         else return false;
     }
 
-    public void setCorretcAnswer(int answerNumber)
+    public void setCorretcAnswer(String corretcAnswer)
     {
         this.corretcAnswer = corretcAnswer;
     }

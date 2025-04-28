@@ -1,10 +1,13 @@
+import java.util.Scanner;
 public class User
 {
     int score;
     String userName;
+    Scanner scr;
 
-    User(String playerName)
+    User(String userName)
     {
+        scr = new Scanner(System.in);
         score = 0;
         this.userName = userName;
     }
@@ -13,8 +16,18 @@ public class User
     {
         return score;
     }
-    public String getPlayerName()
+    public String getUserName()
     {
         return userName;
+    }
+
+    public void addScore(int value)
+    {
+        score += value;
+    }
+
+    public String answer()
+    {
+        return scr.nextLine();
     }
 }
