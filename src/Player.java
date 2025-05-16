@@ -1,11 +1,11 @@
 import java.util.Scanner;
-public class User
+public class Player
 {
-    int score;
-    String userName;
-    Scanner scr;
+    private int score;
+    private String userName;
+    private Scanner scr;
 
-    User(String userName)
+    Player(String userName)
     {
         scr = new Scanner(System.in);
         score = 0;

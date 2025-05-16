@@ -2,12 +2,11 @@ import java.util.ArrayList;
 
 public class Quiz
 {
-    String quizName;
-    User user;
-    ArrayList<Question> questions;
+    private String quizName;
+    private Player user;
+    private ArrayList<Question> questions;
 
-
-    Quiz(String quizName, User user)
+    Quiz(String quizName, Player user)
     {
         this.quizName = quizName;
         this.user = user;
@@ -15,7 +14,11 @@ public class Quiz
 
     public void addQuestion(Question question)
     {
-        questions.add(question);
+        if(question == null)
+        {
+            throw new NullPointerException("The question shouldn't be null");
+        }
+        else questions.add(question);
     }
 
     public void play()

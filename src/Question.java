@@ -4,15 +4,19 @@ public class Question
     int value;
     String question;
     HashMap<String, String> answers;
-    int questionNumber;
+    int questionId;
     String corretcAnswer;
 
-    Question(int value,String question, HashMap<String, String> answer)
+    Question(int value,String question, int questionId)
     {
         this.question = question;
         this.value = value;
-        this.answers = answer;
-        this.questionNumber = questionNumber;
+        this.questionId = questionId;
+    }
+
+    public void addAnswer(String key, String answer)
+    {
+        answers.put("key", "answer");
     }
 
     public int getValue() {
@@ -45,7 +49,11 @@ public class Question
     public String toString()
     {
         StringBuilder strb = new StringBuilder();
-        strb.append("The question nª"+questionNumber+" is:\n"+question+answerToString());
+        strb.append("The question nª"+questionId+" is:\n"+question+answerToString());
         return strb.toString();
+    }
+    public Question question(int questionId)
+    {
+        return this;
     }
 }
