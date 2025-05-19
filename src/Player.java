@@ -28,6 +28,6 @@ public class Player
 
     public String answer()
     {
-        return scr.nextLine();
+        return scr.nextLine().toUpperCase();
     }
 }

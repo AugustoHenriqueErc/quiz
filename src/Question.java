@@ -1,14 +1,15 @@
-import java.util.HashMap;
+import java.util.ArrayList;
 public class Question
 {
     int value;
     String question;
-    HashMap<String, String> answers;
+    ArrayList<String> answers;
     int questionId;
     String corretcAnswer;
 
     Question(int value,String question, int questionId)
     {
+        answers = new ArrayList<>();
         this.question = question;
         this.value = value;
         this.questionId = questionId;
@@ -16,27 +17,30 @@ public class Question
 
     public void addAnswer(String key, String answer)
     {
-        answers.put("key", "answer");
+        StringBuilder strb = new StringBuilder();
+        strb.append(key.toUpperCase()+") "+answer);
+        strb.toString();
+        answers.add(strb.toString());
     }
 
-    public int getValue() {
+    public int getValue()
+    {
         return value;
     }
 
     private String answerToString()
     {
         StringBuilder strb = new StringBuilder();
-        strb.append("\nAnswers:");
-        for(String answer : answers.values())
+        for(int i=0 ;i < answers.size(); i++)
         {
-            strb.append(answer);
+            strb.append(answers.get(i)+"\n");
         }
         return strb.toString();
     }
 
     public boolean isAnswer(String answer)
     {
-        if(answer == corretcAnswer) return true;
+        if(answer.equals(corretcAnswer)) return true;
         else return false;
     }
 
@@ -49,11 +53,7 @@ public class Question
     public String toString()
     {
         StringBuilder strb = new StringBuilder();
-        strb.append("The question nª"+questionId+" is:\n"+question+answerToString());
+        strb.append("A questão de número ª"+questionId+" é:\n"+question+"\n"+answerToString());
         return strb.toString();
-    }
-    public Question question(int questionId)
-    {
-        return this;
     }
 }
